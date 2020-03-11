@@ -7,7 +7,7 @@ import Form from './Form';
 
 
 const Smurfs = () => {
-    const {isFetching, smurfs, errors} = useSelector(state => state);
+    const {isFetching, smurfs, errors} = useSelector(state => state.root);
     const dispatch = useDispatch();
 
     useEffect(() => {

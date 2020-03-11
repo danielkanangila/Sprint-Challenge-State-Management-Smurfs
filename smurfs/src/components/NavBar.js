@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const NavBar = () => {
     return(
         <Toolbar>
-            <h1>Snurfs</h1>
+            <h1>Smurfs</h1>
         </Toolbar>
     )
 }

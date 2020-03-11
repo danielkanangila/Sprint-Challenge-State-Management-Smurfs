@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
-import { useDispatch } from "react-redux";
-import { addSmurf } from "../../store/actions";
-
-const DEFAULT = {
-    name: '',
-    age: '',
-    height: ''
-}
+import { useDispatch, useSelector } from "react-redux";
+import { addSmurf, resetForm } from "../../store/actions";
 
 const Form = () => {
-    const [state, setState] = useState(DEFAULT)
+    const {defaultFormData} = useSelector(state => state.root);
+    const [state, setState] = useState(defaultFormData);
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        setState(defaultFormData)
+    }, [defaultFormData])
+
     const handleChange = e => {
         setState({
             ...state,
@@ -20,10 +20,12 @@ const Form = () => {
     }
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(addSmurf({
-            ...state,
-            height: `${state.height}cm`
-        }));
+        if (state.id === undefined) {
+            dispatch(addSmurf(state));
+        } else {
+            console.log(state)
+        }
+        dispatch(resetForm());
     }
     return(
         <>
@@ -32,7 +34,9 @@ const Form = () => {
                 <Input onChange={handleChange} type="text" name="name" value={state.name} placeholder="Name" />
                 <Input onChange={handleChange} type="text" name="age" value={state.age} placeholder="Age" />
                 <Input onChange={handleChange} type="text" name="height" value={state.height} placeholder="Height" />
-                <Button type="submit">Add</Button>
+                <Button type="submit">
+                    {state.id !== undefined ? 'Save' : 'Add'}
+                </Button>
             </StyledForm>
         </>
     )
