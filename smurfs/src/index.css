@@ -11,3 +11,16 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
