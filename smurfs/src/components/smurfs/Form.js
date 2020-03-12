@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styled from 'styled-components';
 import { useDispatch, useSelector } from "react-redux";
-import { addSmurf, resetForm } from "../../store/actions";
+import { addSmurf, resetForm, updateSmurf } from "../../store/actions";
 
 const Form = () => {
     const {defaultFormData} = useSelector(state => state.root);
@@ -23,7 +23,7 @@ const Form = () => {
         if (state.id === undefined) {
             dispatch(addSmurf(state));
         } else {
-            console.log(state)
+            dispatch(updateSmurf(state));
         }
         dispatch(resetForm());
     }
@@ -35,7 +35,7 @@ const Form = () => {
                 <Input onChange={handleChange} type="text" name="age" value={state.age} placeholder="Age" />
                 <Input onChange={handleChange} type="text" name="height" value={state.height} placeholder="Height" />
                 <Button type="submit">
-                    {state.id !== undefined ? 'Save' : 'Add'}
+                    {state.id !== undefined ? 'Update' : 'Add'}
                 </Button>
             </StyledForm>
         </>

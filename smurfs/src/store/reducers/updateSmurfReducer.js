@@ -1,18 +1,35 @@
 import {
-    EDIT_SMURF
+    EDIT_SMURF,
+    UPDATING_START,
+    UPDATING_SUCCESS,
+    UPDATING_FAILED
 } from './../actions';
 
 const initialState = {
-    isPosting: false,
+    isUpdating: false,
 }
 
-export const reducer = (state = initialState, action) => {
+export const updateSmurfReducer = (state = initialState, action) => {
     switch(action.type) {
         case EDIT_SMURF: 
             return {
                 ...state,
-                [state.root.defaultFormData]: action.payload
-            }
+            };
+        case UPDATING_START:
+            return {
+                ...state,
+                isUpdating: true
+            };
+        case UPDATING_SUCCESS:
+            return {
+                ...state,
+                isUpdating: false
+            };
+        case UPDATING_FAILED:
+            return {
+                ...state,
+                isUpdating: false
+            };
         default:
             return state;
     }

@@ -7,7 +7,7 @@ import Form from './Form';
 
 
 const Smurfs = () => {
-    const {isFetching, smurfs, errors} = useSelector(state => state.root);
+    const {isFetching, smurfs, error} = useSelector(state => state.root);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const Smurfs = () => {
                 {isFetching ? (<h1 className="loading">Loading...</h1>)
                 : smurfs.map(smurf => <Smurf key={smurf.id} {...smurf} />)
                 }
-                {errors ? <p>{errors}</p> : null}
+                {error ? <p className="danger">{error}</p> : null}
             </Grid>
         </React.Fragment>
     );

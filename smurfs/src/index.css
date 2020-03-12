@@ -24,3 +24,10 @@ button {
   border: none;
   cursor: pointer;
 }
+
+.danger {
+  background-color: firebrick;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 5px;
+}
