@@ -2,4 +2,32 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  font-size: 100%;
+  color: darkslategrey;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+input {
+  background: none;
+  outline: none;
+  border: none;
+}
+
+button {
+  background: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.danger {
+  background-color: firebrick;
+  color: #ffffff;
+  padding: 16px;
+  border-radius: 5px;
 }
