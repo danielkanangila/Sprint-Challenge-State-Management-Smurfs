@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { editSmurf } from '../../store/actions';
+import { editSmurf, deleteSmurf } from '../../store/actions';
 
 const Smurf = ({name, age, height, id}) => {
     const dispatch = useDispatch();
@@ -18,7 +18,7 @@ const Smurf = ({name, age, height, id}) => {
                 </p>
                 <div className="action">
                     <button onClick={() => dispatch(editSmurf({name, age, height, id}))}>Edit</button>
-                    <button className="delete">Delete</button>
+                    <button onClick={() => dispatch(deleteSmurf(id))} className="delete">Delete</button>
                 </div>
             </div>
         </Wrapper>
