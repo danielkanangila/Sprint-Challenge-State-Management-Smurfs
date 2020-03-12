@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Smurfs from "./components/smurfs/Smurfs";
 import styled from 'styled-components';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
+
 class App extends Component {
   render() {
     return (
@@ -10,6 +12,7 @@ class App extends Component {
         <Container>
           <Smurfs />
         </Container>
+        <Footer />
       </div>
     );
   }
